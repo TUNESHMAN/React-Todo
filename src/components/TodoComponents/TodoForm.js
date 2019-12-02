@@ -21,11 +21,14 @@ class TodoForm extends Component {
     });
   };
 
+handleFormSubmit= event =>{
+    event.preventDefault();
+}
   render() {
     const { duty } = this.state.formData;
     return (
       <div>
-        <form onSubmit={}>
+        <form onSubmit={this.handleFormSubmit}>
           <input
             type="text"
             value={duty}

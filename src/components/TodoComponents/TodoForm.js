@@ -13,12 +13,28 @@ class TodoForm extends Component {
     };
   }
 
+  handleFormDataChange = event => {
+    const { name, value } = event.target;
+    this.setState({
+      ...this.state.formData,
+      [name]: value
+    });
+  };
+
   render() {
+    const { duty } = this.state.formData;
     return (
       <div>
-        <form>
-          <input type="text" value={this.state.formData} />
+        <form onSubmit={}>
+          <input
+            type="text"
+            value={duty}
+            onChange={this.handleFormDataChange}
+            placeholder="What next?"
+          />
         </form>
+        <button>ADD TODO</button>
+        <button>CLEAR COMPLETED</button>
       </div>
     );
   }

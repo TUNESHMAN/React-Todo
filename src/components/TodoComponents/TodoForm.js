@@ -23,7 +23,7 @@ class TodoForm extends Component {
 
   handleFormSubmit = event => {
     event.preventDefault();
-    alert(`${this.state.formData.task}`);
+    this.props.addTodo(this.state);
   };
   render() {
     const { duty } = this.state.formData;

@@ -7,7 +7,6 @@ class TodoForm extends Component {
     this.state = {
       formData: {
         task: "",
-        id: "",
         completed: false
       }
     };
@@ -16,9 +15,9 @@ class TodoForm extends Component {
   handleFormDataChange = event => {
     const { name, value } = event.target;
     this.setState({
-      ...this.state.formData,
+      formData: {...this.state.formData,
       [name]: value
-    });
+    }});
   };
 
   handleFormSubmit = event => {
@@ -26,20 +25,20 @@ class TodoForm extends Component {
     this.props.addTodo(this.state);
   };
   render() {
-    const { duty } = this.state.formData;
+    const { task } = this.state.formData;
     return (
       <div>
         <form onSubmit={this.handleFormSubmit}>
           <input
             type="text"
-            name="todo"
+            name="task"
             placeholder="...todo"
-            value={duty}
+            value={task}
             onChange={this.handleFormDataChange}
           />
+            <button type="submit">ADD TODO</button>
         </form>
-        <button type="submit">ADD TODO</button>
-        <button>CLEAR COMPLETED</button>
+        {/* <button>CLEAR COMPLETED</button> */}
       </div>
     );
   }

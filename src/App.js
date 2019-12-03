@@ -2,11 +2,11 @@ import React from "react";
 import TodoForm from "./components/TodoComponents/TodoForm";
 import Todo from "./components/TodoComponents/Todo";
 import "bootstrap/dist/css/bootstrap.min.css";
-import uuid from "uuid";
+// import uuid from "uuid";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       todos: [
@@ -33,11 +33,13 @@ class App extends React.Component {
     });
   };
 
-  addTodo = (todo) => {
-    todo.id = Math.random();
-    let todos = [...this.state.todos, todo];
+  addTodo = todo => {
+    const {formData} = todo
+    formData.id = Date.now();
+    let updatedTodos = [...this.state.todos, formData];
+    console.log(updatedTodos)
     this.setState({
-      todos: todos
+      todos: updatedTodos
     });
   };
 

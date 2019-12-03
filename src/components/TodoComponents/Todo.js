@@ -6,6 +6,7 @@ const Todo = ({ todos, deleteTodo }) => {
       return (
         <div className="item" key={todo.id}>
           <span onClick={()=>{deleteTodo(todo.id)}}>{todo.task}</span>
+          <button onClick={()=>{deleteTodo(todo.id)}}>CLEAR COMPLETED</button>
         </div>
       );
     })

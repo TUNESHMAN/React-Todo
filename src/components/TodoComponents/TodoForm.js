@@ -21,9 +21,10 @@ class TodoForm extends Component {
     });
   };
 
-handleFormSubmit= event =>{
+  handleFormSubmit = event => {
     event.preventDefault();
-}
+    alert(`${this.state.formData.task}`);
+  };
   render() {
     const { duty } = this.state.formData;
     return (
@@ -31,12 +32,13 @@ handleFormSubmit= event =>{
         <form onSubmit={this.handleFormSubmit}>
           <input
             type="text"
+            name="todo"
+            placeholder="...todo"
             value={duty}
             onChange={this.handleFormDataChange}
-            placeholder="What next?"
           />
         </form>
-        <button>ADD TODO</button>
+        <button type="submit">ADD TODO</button>
         <button>CLEAR COMPLETED</button>
       </div>
     );
